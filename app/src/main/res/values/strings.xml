@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Click counter</string>
+    <string name="settings">settings</string>
+    <string name="counter">counter</string>
+    <string name="increment">increment</string>
+    <string name="increment_input">increment input</string>
+</resources>
