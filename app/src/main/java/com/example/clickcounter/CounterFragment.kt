@@ -15,7 +15,7 @@ import javax.inject.Provider
 
 class CounterFragment : MvpAppCompatFragment(R.layout.counter_fragment), CounterView {
 
-    private val navigator = AppNavigator(FragmentActivity(), R.id.container)
+    private val navigator = AppNavigator(FragmentActivity(), R.id.counterContainer)
 
 
 //    lateinit var presenterProvider: Provider<CounterPresenter>

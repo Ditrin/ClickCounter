@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="#9BACDC"
+    android:id="@+id/settingContainer">
+
+    <EditText
+        android:id="@+id/incrementEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:textSize="30dp"
+        android:imeOptions="actionGo"
+        android:maxLines="1"
+        android:inputType="number"
+        android:textColor="@color/black"
+        tools:text="1"></EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/increment_input"
+        android:textColor="@color/black"
+        android:textSize="10sp"></TextView>
+
+</LinearLayout>

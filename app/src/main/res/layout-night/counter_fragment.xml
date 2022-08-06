@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#9BACDC"
+    android:id="@+id/counterContainer">
+    >
+
+    <TextView
+        android:id="@+id/counterState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        tools:text="0"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/counter"
+        android:textColor="@color/black"
+        android:textSize="10sp"></TextView>
+
+    <TextView
+        android:id="@+id/incrementState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        tools:text="1"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/increment"
+        android:textColor="@color/black"
+        android:textSize="10sp"></TextView>
+
+    <Button
+        android:id="@+id/counterEnter"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="enter">
+    </Button>
+
+
+</LinearLayout>
