@@ -1,21 +1,21 @@
-package com.example.clickcounter
+package com.example.clickcounter.presentation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import com.github.terrakok.cicerone.Navigator
+import com.example.clickcounter.*
+import com.example.clickcounter.domain.BackButtonListener
+import com.example.clickcounter.domain.presenter.MainPresenter
+import com.example.clickcounter.domain.view.MainView
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
 import moxy.ktx.moxyPresenter
 
-class MainActivity : MvpAppCompatActivity(), MainView{
+class MainActivity : MvpAppCompatActivity(), MainView {
 
     private val navigator = AppNavigator(this, R.id.container)
 
     private val presenter by moxyPresenter {
-        MainPresenter( App.INSTANCE.router, Screens)
+        MainPresenter(App.INSTANCE.router)
     }
-
 
     override fun onResumeFragments() {
         super.onResumeFragments()
@@ -31,13 +31,13 @@ class MainActivity : MvpAppCompatActivity(), MainView{
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
+
     override fun onBackPressed() {
         supportFragmentManager.fragments.forEach {
-            if(it is BackButtonListener && it.backPressed()){
+            if (it is BackButtonListener && it.backPressed()) {
                 return
             }
         }
         presenter.backClicked()
     }
-
 }

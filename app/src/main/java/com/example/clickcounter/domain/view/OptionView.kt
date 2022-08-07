@@ -1,4 +1,4 @@
-package com.example.clickcounter
+package com.example.clickcounter.domain.view
 
 import moxy.MvpView
 

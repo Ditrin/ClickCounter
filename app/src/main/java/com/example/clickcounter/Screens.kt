@@ -1,7 +1,8 @@
 package com.example.clickcounter
 
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentFactory
+import com.example.clickcounter.presentation.CounterFragment
+import com.example.clickcounter.presentation.OptionFragment
+import com.example.clickcounter.presentation.SettingsFragment
 import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 object Screens {

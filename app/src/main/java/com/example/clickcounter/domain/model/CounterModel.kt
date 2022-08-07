@@ -1,4 +1,4 @@
-package com.example.clickcounter
+package com.example.clickcounter.domain.model
 
 interface CounterModel {
     var data: Int
@@ -6,7 +6,7 @@ interface CounterModel {
 
     fun increment()
 
-    class Base(override var data: Int, override var valueIncrement: Int): CounterModel{
+    class Base(override var data: Int, override var valueIncrement: Int): CounterModel {
         override fun increment() {
             data += valueIncrement
         }

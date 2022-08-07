@@ -1,17 +1,19 @@
-package com.example.clickcounter
+package com.example.clickcounter.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.clickcounter.databinding.CounterFragmentBinding
+import com.example.clickcounter.*
 import com.example.clickcounter.databinding.OptionsFragmentBinding
+import com.example.clickcounter.domain.BackButtonListener
+import com.example.clickcounter.domain.presenter.OptionPresenter
+import com.example.clickcounter.domain.view.OptionView
 import moxy.MvpAppCompatFragment
-import moxy.MvpFragment
 import moxy.ktx.moxyPresenter
 
-class OptionFragment : MvpAppCompatFragment(R.layout.options_fragment), BackButtonListener, OptionView {
+class OptionFragment : MvpAppCompatFragment(R.layout.options_fragment), BackButtonListener,
+    OptionView {
 
     private lateinit var binding: OptionsFragmentBinding
 

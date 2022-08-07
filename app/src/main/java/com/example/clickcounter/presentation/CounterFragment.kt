@@ -1,24 +1,25 @@
-package com.example.clickcounter
+package com.example.clickcounter.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
+import android.widget.Toast
+import com.example.clickcounter.*
 import com.example.clickcounter.databinding.CounterFragmentBinding
-import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.example.clickcounter.domain.model.CounterModel
+import com.example.clickcounter.domain.presenter.CounterPresenter
+import com.example.clickcounter.domain.view.CounterView
 import moxy.MvpAppCompatFragment
-import moxy.MvpFragment
-import moxy.MvpView
 import moxy.ktx.moxyPresenter
-import javax.inject.Provider
 
-class CounterFragment() : MvpAppCompatFragment(R.layout.counter_fragment), CounterView {
-
-    private val navigator = AppNavigator(FragmentActivity(), R.id.counterContainer)
+class CounterFragment : MvpAppCompatFragment(R.layout.counter_fragment), CounterView {
 
     private val presenter by moxyPresenter {
-        CounterPresenter(CounterModel.Base(0, 1), CounterView.Base(), App.INSTANCE.router)
+        CounterPresenter(
+            CounterModel.Base(0, ValueIncrement.value),
+            App.INSTANCE.router
+        )
     }
 
     lateinit var binding: CounterFragmentBinding
@@ -35,6 +36,8 @@ class CounterFragment() : MvpAppCompatFragment(R.layout.counter_fragment), Count
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.counterEnter.setOnClickListener {
             presenter.onCountPressed()
+            Toast.makeText(activity, getString(R.string.counter_improve), Toast.LENGTH_SHORT)
+                .show()
         }
     }
 
@@ -47,8 +50,8 @@ class CounterFragment() : MvpAppCompatFragment(R.layout.counter_fragment), Count
     }
 
     override fun onCountButtonPressed(onClick: () -> Unit) {
-        binding.counterEnter.setOnClickListener { onClick() }
+        binding.counterEnter.setOnClickListener {
+            onClick()
+        }
     }
-
-
 }

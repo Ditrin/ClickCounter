@@ -1,4 +1,4 @@
-package com.example.clickcounter
+package com.example.clickcounter.presentation
 
 import android.annotation.SuppressLint
 import android.app.Application

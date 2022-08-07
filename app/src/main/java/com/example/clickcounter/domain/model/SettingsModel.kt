@@ -1,4 +1,4 @@
-package com.example.clickcounter
+package com.example.clickcounter.domain.model
 
 interface SettingsModel {
     var valueIncrement: Int
@@ -10,7 +10,5 @@ interface SettingsModel {
         override fun setValue(increment: String) {
             valueIncrement = increment.toInt()
         }
-
     }
-
 }
