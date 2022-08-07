@@ -4,6 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.widget.EditText
+import android.widget.TextView
+import androidx.core.widget.doAfterTextChanged
 import com.example.clickcounter.databinding.SettingsFragmentBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -25,20 +29,47 @@ class SettingsFragment: MvpAppCompatFragment(R.layout.settings_fragment), Settin
         return binding.root
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        if (savedInstanceState != null){
+            binding.incrementEnter.setText(savedInstanceState.getString("increment"))
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.incrementEnter.setOnClickListener { edittext->
-            presenter.setIncrement(binding.incrementEnter.text.toString())
-            val bundle = Bundle().apply {
-                putSerializable("increment", binding.incrementEnter.text.toString())
+
+
+//        binding.incrementEnter.setOnEditorActionListener {
+//            presenter.setIncrement(binding.incrementEnter.text.toString())
+//            val bundle = Bundle().apply {
+//                putSerializable("increment", binding.incrementEnter.text.toString())
+//            }
+//            savedInstanceState?.putAll(bundle)
+//            binding.incrementEnter.text
+//        }
+        binding.incrementEnter.setOnEditorActionListener(TextView.OnEditorActionListener{ _, actionId, _ ->
+
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                presenter.setIncrement(binding.incrementEnter.text.toString())
+                val bundle = Bundle().apply {
+                    putSerializable("increment", binding.incrementEnter.text.toString())
+                }
+                savedInstanceState?.putString("increment", binding.incrementEnter.text.toString())
+                // Do something of your interest.
+                // We in this examples created the following Toasts
+
+
+                return@OnEditorActionListener true
             }
-            binding.incrementEnter.text
-        }
+            false
+        })
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        outState.putString("increment", binding.incrementEnter.text.toString())
 
     }
 

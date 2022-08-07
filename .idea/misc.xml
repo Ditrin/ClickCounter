@@ -14,10 +14,11 @@
         <entry key="app/src/main/res/layout-night/counter_fragment.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout-night/options_fragment.xml" value="0.2667572463768116" />
         <entry key="app/src/main/res/layout-night/settings_fragment.xml" value="0.2667572463768116" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2981256332320162" />
         <entry key="app/src/main/res/layout/options_fragment.xml" value="0.335" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

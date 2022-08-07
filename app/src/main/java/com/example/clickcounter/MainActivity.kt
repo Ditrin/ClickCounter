@@ -6,10 +6,16 @@ import android.widget.Button
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import moxy.MvpAppCompatActivity
+import moxy.ktx.moxyPresenter
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : MvpAppCompatActivity(), MainView{
 
     private val navigator = AppNavigator(this, R.id.container)
+
+    private val presenter by moxyPresenter {
+        MainPresenter( App.INSTANCE.router, Screens)
+    }
+
 
     override fun onResumeFragments() {
         super.onResumeFragments()
@@ -24,8 +30,14 @@ class MainActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        App.INSTANCE.router.navigateTo(Screens.OptionScreen())
     }
-
+    override fun onBackPressed() {
+        supportFragmentManager.fragments.forEach {
+            if(it is BackButtonListener && it.backPressed()){
+                return
+            }
+        }
+        presenter.backClicked()
+    }
 
 }

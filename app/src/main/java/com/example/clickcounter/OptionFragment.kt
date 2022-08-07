@@ -9,10 +9,15 @@ import com.example.clickcounter.databinding.CounterFragmentBinding
 import com.example.clickcounter.databinding.OptionsFragmentBinding
 import moxy.MvpAppCompatFragment
 import moxy.MvpFragment
+import moxy.ktx.moxyPresenter
 
-class OptionFragment: MvpAppCompatFragment(R.layout.options_fragment) {
+class OptionFragment : MvpAppCompatFragment(R.layout.options_fragment), BackButtonListener, OptionView {
 
     private lateinit var binding: OptionsFragmentBinding
+
+    private val presenter by moxyPresenter {
+        OptionPresenter(App.INSTANCE.router)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,5 +38,8 @@ class OptionFragment: MvpAppCompatFragment(R.layout.options_fragment) {
             App.INSTANCE.router.navigateTo(Screens.CounterScreen())
         }
     }
+
+    override fun backPressed(): Boolean = presenter.onBackPressed()
+
 
 }
