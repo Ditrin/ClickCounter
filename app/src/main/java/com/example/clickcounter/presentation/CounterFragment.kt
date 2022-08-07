@@ -36,8 +36,12 @@ class CounterFragment : MvpAppCompatFragment(R.layout.counter_fragment), Counter
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         binding.counterEnter.setOnClickListener {
             presenter.onCountPressed()
-            Toast.makeText(activity, getString(R.string.counter_improve), Toast.LENGTH_SHORT)
+            if (ValueIncrement.value != 0)
+                Toast.makeText(activity, getString(R.string.counter_improve), Toast.LENGTH_SHORT)
                 .show()
+            else
+                Toast.makeText(activity, getString(R.string.zero_increment), Toast.LENGTH_SHORT)
+                    .show()
         }
     }
 

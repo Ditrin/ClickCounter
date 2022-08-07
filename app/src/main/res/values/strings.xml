@@ -5,4 +5,5 @@
     <string name="increment">increment</string>
     <string name="increment_input">increment input</string>
     <string name="counter_improve">Значение счетчика увеличено</string>
+    <string name="zero_increment">Счетчик не увеличивается, инкремент = 0</string>
 </resources>

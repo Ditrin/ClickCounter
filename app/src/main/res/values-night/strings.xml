@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="counter_improve">Значение счетчика увеличено</string>
+    <string name="zero_increment">Счетчик не увеличивается, инкремент = 0</string>
 </resources>
